@@ -1,0 +1,31 @@
+ЗАДАНИЕ 1
+
+sqlite> SELECT number,name, started_at
+   ...> FROM courses INNER JOIN streams
+   ...> ON courses.id = streams.course_id;
+   
+
+ЗАДАНИЕ 2
+
+sqlite> SELECT name, SUM(students_amount)
+   ...> 
+   ...> FROM courses INNER JOIN streams
+   ...> ON courses.id = streams.course_id
+   ...> GROUP BY name;
+   
+   
+   ЗАДАНИЕ 3
+   
+   SELECT
+   ...> teachers.id,
+   ...> teachers.surname,
+   ...> teachers.name,
+   ...> AVG(grades.grade),
+   ...> streams.number AS stream_number
+   ...> FROM grades
+   ...> LEFT JOIN teachers
+   ...> ON teachers.id = grades.teacher_id
+   ...> LEFT JOIN streams
+   ...> ON grades.stream_id = streams.id
+   ...> GROUP BY teacher_id;
+
